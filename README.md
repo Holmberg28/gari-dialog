@@ -5,6 +5,8 @@ It offers clean UI dialogs with optional icons, dynamic inputs, button actions, 
 
 Perfect for confirmations, alerts, prompts, or custom interactive dialogs.
 
+**See live demo:** [holmberg28.github.io/gari-dialog](https://holmberg28.github.io/gari-dialog/index.html)
+
 ---
 ## 🚀 Features
 
@@ -20,6 +22,12 @@ Perfect for confirmations, alerts, prompts, or custom interactive dialogs.
 ---
 
 ## 📦 Installation
+
+### Install via NPM:
+
+```bash
+npm install garidialog
+```
 
 ### From source
 
