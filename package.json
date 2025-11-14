@@ -9,8 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Holmberg28/gari-dialog.git"
+    "url": "git+https://github.com/Holmberg28/gari-dialog.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "modal",
     "dialog",
@@ -25,5 +28,9 @@
   "funding": {
     "type": "paypal",
     "url": "https://www.paypal.com/donate/?business=2NMA64QCCKTFA&no_recurring=0&item_name=I%27m+going+through+some+financial+difficulties%2C+and+every+donation+truly+helps.+Thank+you+so+much+%F0%9F%99%8F+&currency_code=CAD"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Holmberg28/gari-dialog/issues"
+  },
+  "homepage": "https://github.com/Holmberg28/gari-dialog#readme"
 }
