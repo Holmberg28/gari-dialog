@@ -1,11 +1,13 @@
 {
   "name": "garidialog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight, customizable modal/dialog library for web developers, supporting icons, actions, prompts, and animations.",
-  "main": "garidialog.js",
+  "main": "dist/garidialog.min.js",
+  "module": "dist/garidialog.min.js",
   "scripts": {
-    "minify": "terser garidialog.js -o garidialog.min.js -c -m",
-    "start": "live-server demo --open=demo/index.html"
+    "minify": "terser garidialog.js -o dist/garidialog.min.js -c -m",
+    "start": "live-server demo --open=demo/index.html",
+    "build": "npm run minify"
   },
   "repository": {
     "type": "git",
@@ -37,7 +39,7 @@
     "dialog-box",
     "modal-dialog"
   ],
-  "author": "Arturo García",
+  "author": "Holmberg A. Garcia Rivera",
   "license": "MIT",
   "funding": {
     "type": "paypal",
