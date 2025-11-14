@@ -46,7 +46,6 @@ function demoFullscreen() {
         icon: "fa-solid fa-expand",
         size: "fullscreen",
         color: "dark",
-        close: "Close"
     });
 }
 
