@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GariDialog Documentation</title>
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- GariDialog -->
+    <link rel="stylesheet" href="assets/garidialog.min.css" />
+
+    <!-- Docs CSS -->
+    <link rel="stylesheet" href="assets/docs.css" />
+  </head>
+
+  <body>
+    <div class="docs-container">
+      <!-- SIDEBAR -->
+      <aside class="docs-sidebar">
+        <h2>GariDialog</h2>
+        <ul>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="#props">Props</a></li>
+          <li><a href="#colors">Colors</a></li>
+          <li><a href="#icons">Icons</a></li>
+          <li><a href="#donate">Support</a></li>
+        </ul>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="docs-content">
+        <!-- INTRO -->
+        <section id="intro">
+          <h1>GariDialog</h1>
+          <p class="lead">
+            A lightweight, modern dialog component. Fully custom, dependency-free, and
+            framework-agnostic.
+          </p>
+          
+          <div class="alert alert-light border border-secondary border-2" role="alert">
+            Hi! I'm <strong>Arturo</strong>, a web developer currently struggling financially. If GariDialog helps you in your work, please consider <a href="https://www.paypal.com/donate/?business=2NMA64QCCKTFA&no_recurring=0&item_name=I%27m+going+through+some+financial+difficulties%2C+and+every+donation+truly+helps.+Thank+you+so+much+%F0%9F%99%8F+&currency_code=CAD" target="_blank">supporting my work</a>. Thank you so much!
+          </div>
+
+        </section>
+
+        <hr />
+
+        <!-- EXAMPLES -->
+        <section id="examples">
+          <h2>Live Examples</h2>
+
+          <!-- Example Card -->
+          <div class="example-card">
+            <div class="example-preview">
+              <button class="btn btn-primary" onclick="demoAlert()">
+                Run Alert
+              </button>
+            </div>
+
+            <div class="example-code">
+              <pre><code id="code-alert">
+GariDialog({
+  title: "Hello!",
+  text: "This is a simple alert.",
+  icon: "fa-solid fa-bell",
+  color: "primary",
+});
+</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-alert')">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <div class="example-preview">
+              <button class="btn btn-warning" onclick="demoConfirm()">
+                Run Confirm
+              </button>
+            </div>
+            <div class="example-code">
+              <pre><code id="code-confirm">
+GariDialog({
+  title: "Are you sure?",
+  text: "Do you really want to continue?",
+  color: "warning",
+  icon: "fa-solid fa-triangle-exclamation",
+  close: "Cancel",
+  actions: {
+    confirm: "Yes, continue"
+  }
+}).then(r => console.log(r));
+</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-confirm')">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <!-- prompt -->
+          <div class="example-card">
+            <div class="example-preview">
+              <button class="btn btn-success" onclick="demoPrompt()">
+                Run Prompt
+              </button>
+            </div>
+            <div class="example-code">
+              <pre><code id="code-prompt">
+GariDialog({
+  title: "Enter Name",
+  icon: "fa-solid fa-user",
+  color: "success",
+  actions: { ok: "Submit" },
+  promptInput: [
+    { type: "text", label: "Name", name: "name" }
+  ]
+}).then(result => console.log(result));
+</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-prompt')">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <!-- fullscreen -->
+          <div class="example-card">
+            <div class="example-preview">
+              <button class="btn btn-dark" onclick="demoFullscreen()">
+                Run Fullscreen
+              </button>
+            </div>
+            <div class="example-code">
+              <pre><code id="code-fullscreen">
+GariDialog({
+  title: "Fullscreen Dialog",
+  text: "Covers the entire screen.",
+  icon: "fa-solid fa-expand",
+  color: "dark",
+  size: "fullscreen",
+  close: "Close"
+});
+</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-fullscreen')">
+                Copy
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- PROPS -->
+        <section id="props">
+          <h2>Props & Options</h2>
+
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>Dialog title</td>
+              </tr>
+              <tr>
+                <td>text</td>
+                <td>string</td>
+                <td>Plain message text</td>
+              </tr>
+              <tr>
+                <td>html</td>
+                <td>string</td>
+                <td>Custom HTML content</td>
+              </tr>
+              <tr>
+                <td>icon</td>
+                <td>string</td>
+                <td>
+                  FontAwesome, Bootstrap Icons, Material Symbols, or emoji
+                </td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>string</td>
+                <td>Primary theme color</td>
+              </tr>
+              <tr>
+                <td>actions</td>
+                <td>object</td>
+                <td>{ key: "Button Text" }</td>
+              </tr>
+                <tr>
+                <td>close</td>
+                <td>string | false</td>
+                <td>Label of the cancel button, or <code>false</code> to hide it</td>
+                </tr>
+              <tr>
+                <td>size</td>
+                <td>“sm”, “md”, “lg”, “fullscreen”</td>
+                <td>Dialog width</td>
+              </tr>
+                <tr>
+                <td>promptInput</td>
+                <td>array</td>
+                <td>
+                  Array of input configs for prompts.<br>
+                  Each config supports: <code>type</code>, <code>label</code>, <code>name</code>, <code>defaultValue</code>, <code>placeholder</code>.<br>
+                  Example: <code>[{ type: "text", label: "Name", name: "name" }]</code>
+                </td>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr />
+
+        <!-- COLORS -->
+        <section id="colors">
+          <h2>Available Colors</h2>
+          <p></p>
+            You can use any of these theme names, or provide any valid hex color (e.g. <code>#ff6600</code>).
+          </p>
+          <div class="color-grid">
+            <div class="color-box" style="--c: #027be3">primary</div>
+            <div class="color-box" style="--c: #6c757d">secondary</div>
+            <div class="color-box" style="--c: #21ba45">success</div>
+            <div class="color-box" style="--c: #c10015">danger</div>
+            <div class="color-box" style="--c: #f2c037">warning</div>
+            <div class="color-box" style="--c: #0dcaf0">info</div>
+            <div class="color-box" style="--c: #f8f9fa; color: #333">light</div>
+            <div class="color-box" style="--c: #212529">dark</div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- ICONS -->
+        <section id="icons">
+          <h2>Icons</h2>
+          <p>You can use:</p>
+          <ul>
+            <li>
+              <strong>FontAwesome</strong> — <code>"fa-solid fa-check"</code>
+            </li>
+            <li><strong>Bootstrap Icons</strong> — <code>"bi-alarm"</code></li>
+            <li><strong>Material Symbols</strong> — <code>"warning"</code></li>
+            <li><strong>Emoji</strong> — <code>"🔥"</code></li>
+          </ul>
+        </section>
+
+        <hr />
+
+        <!-- DONATE -->
+        <section id="donate">
+          <h2>Support the Project</h2>
+          <p class="text-muted">
+            If
+            GariDialog helps you in your work, please consider supporting me. Every donation truly helps.
+          </p>
+
+          <a
+            href="https://www.paypal.com/donate/?business=2NMA64QCCKTFA&no_recurring=0&item_name=I%27m+going+through+some+financial+difficulties%2C+and+every+donation+truly+helps.+Thank+you+so+much+%F0%9F%99%8F+&currency_code=CAD"
+            target="_blank"
+            class="btn btn-primary btn-lg"
+            >Donate via PayPal</a
+          >
+
+          <p class="mt-3">
+            Would you like to request a feature or report a bug? Email me at
+            <a href="mailto:garciaarturo000@gmail.com"
+              >garciaarturo000@gmail.com</a
+            >
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script src="assets/garidialog.min.js"></script>
+    <script src="assets/demo.js"></script>
+
+    <script>
+      function copyCode(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        GariDialog({
+          title: "Copied!",
+          text: "Code copied to clipboard.",
+          icon: "fa-solid fa-check",
+          color: "success",
+          size: "sm",
+          close: false,
+          actions: { ok: "OK" },
+        });
+      }
+    </script>
+  </body>
+</html>

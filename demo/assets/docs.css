@@ -1,0 +1,111 @@
+.docs-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.docs-sidebar {
+  width: 260px;
+  background: #1f2937;
+  color: #fff;
+  padding: 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.docs-sidebar h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.docs-sidebar ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.docs-sidebar li {
+  margin-bottom: 10px;
+}
+
+.docs-sidebar a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.docs-sidebar a:hover {
+  color: #fff;
+}
+
+/* CONTENT */
+.docs-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.example-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.example-preview {
+  margin-bottom: 15px;
+}
+
+.example-code {
+  position: relative;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.copy-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: none;
+  background: #027be3;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.copy-btn:hover {
+  background: #0369c9;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-box {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--c);
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* When on phones or small screens */
+@media (max-width: 768px) {
+  .docs-container {
+    flex-direction: column;
+  }
+
+  .docs-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
