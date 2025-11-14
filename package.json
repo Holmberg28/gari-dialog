@@ -1,6 +1,6 @@
 {
   "name": "garidialog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight, customizable modal/dialog library for web developers, supporting icons, actions, prompts, and animations.",
   "main": "garidialog.js",
   "scripts": {

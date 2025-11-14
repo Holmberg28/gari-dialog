@@ -32,8 +32,8 @@ npm install garidialog
 ### From source
 
 ```html
-<link rel="stylesheet" href="dist/garidialog.min.css">
-<script src="dist/garidialog.min.js"></script>
+<link rel="stylesheet" href="https://holmberg28.github.io/gari-dialog/dist/garidialog.min.css">
+<script src="https://holmberg28.github.io/gari-dialog/dist/garidialog.min.js"></script>
 ```
 
 ---
