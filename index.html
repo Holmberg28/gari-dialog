@@ -43,38 +43,58 @@
         <section id="intro">
           <h1>GariDialog</h1>
           <p class="lead">
-            A lightweight, modern dialog component. Fully custom, dependency-free, and
-            framework-agnostic.
+            A lightweight, modern dialog component. Fully custom,
+            dependency-free, and framework-agnostic.
           </p>
-          
-          <div class="alert alert-light border border-secondary border-2" role="alert">
-            Hi! I'm <strong>Arturo</strong>, a web developer currently struggling financially. If GariDialog helps you in your work, please consider <a href="https://www.paypal.com/donate/?business=2NMA64QCCKTFA&no_recurring=0&item_name=I%27m+going+through+some+financial+difficulties%2C+and+every+donation+truly+helps.+Thank+you+so+much+%F0%9F%99%8F+&currency_code=CAD" target="_blank">supporting my work</a>. Thank you so much!
-          </div>
 
+          <p class="lead text-success">[NEW] Now with sound notifications!</p>
+
+          <div
+            class="alert alert-light border border-secondary border-2"
+            role="alert"
+          >
+            Hi! I'm <strong>Arturo</strong>, a web developer currently
+            struggling financially. If GariDialog helps you in your work, please
+            consider
+            <a
+              href="https://www.paypal.com/donate/?business=2NMA64QCCKTFA&no_recurring=0&item_name=I%27m+going+through+some+financial+difficulties%2C+and+every+donation+truly+helps.+Thank+you+so+much+%F0%9F%99%8F+&currency_code=CAD"
+              target="_blank"
+              >supporting my work</a
+            >. Thank you so much!
+          </div>
         </section>
 
         <hr />
 
         <!-- INSTALLATION -->
-         <section id="installation">
+        <section id="installation">
           <h2>Installation</h2>
-          <p>Install <span class="badge bg-dark">GariDialog</span> via npm or include the files directly in your project.</p>
+          <p>
+            Install <span class="badge bg-dark">GariDialog</span> via npm or
+            include the files directly in your project.
+          </p>
 
           <div class="example-code">
             <pre><code id="code-npm">npm install garidialog</code></pre>
-            <button class="copy-btn" onclick="copyCode('code-npm')">Copy</button>
+            <button class="copy-btn" onclick="copyCode('code-npm')">
+              Copy
+            </button>
           </div>
 
           <p class="my-2">Or include the CSS and JS files from GitHub Pages:</p>
 
           <div class="example-code mb-2">
             <pre><code id="code-stylesheet">&lt;link rel="stylesheet" href="https://holmberg28.github.io/gari-dialog/dist/garidialog.min.css" /&gt;</code></pre>
-            <button class="copy-btn" onclick="copyCode('code-stylesheet')">Copy</button>
+            <button class="copy-btn" onclick="copyCode('code-stylesheet')">
+              Copy
+            </button>
           </div>
 
           <div class="example-code">
             <pre><code id="code-script">&lt;script src="https://holmberg28.github.io/gari-dialog/dist/garidialog.min.js"&gt;&lt;/script&gt;</code></pre>
-            <button class="copy-btn" onclick="copyCode('code-script')">Copy</button>
+            <button class="copy-btn" onclick="copyCode('code-script')">
+              Copy
+            </button>
           </div>
         </section>
         <hr />
@@ -85,7 +105,7 @@
 
           <div class="example-card">
             <div class="example-preview">
-              <button class="btn btn-primary" onclick="demoAlert()">
+              <button class="btn btn-success" onclick="demoAlert()">
                 Run Alert
               </button>
             </div>
@@ -96,8 +116,9 @@ GariDialog({
   title: "Hello!",
   text: "This is a simple alert.",
   icon: "fa-solid fa-bell",
-  color: "primary",
-  close: "Got it"
+  color: "success",
+  close: "Got it",
+  sound: true,
 });
 </code></pre>
               <button class="copy-btn" onclick="copyCode('code-alert')">
@@ -120,6 +141,7 @@ GariDialog({
   color: "warning",
   icon: "fa-solid fa-triangle-exclamation",
   close: "Cancel",
+  sound: true,
   actions: {
     confirm: "Yes, continue"
   }
@@ -129,12 +151,24 @@ GariDialog({
                 Copy
               </button>
             </div>
+
+            <div class="example-code mt-2">
+              <pre>
+                <code>
+{
+    "confirm": true,
+    "inputs": {}
+}</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-alert-console')">
+                Copy
+              </button>
+            </div>
           </div>
 
           <!-- prompt -->
           <div class="example-card">
             <div class="example-preview">
-              <button class="btn btn-success" onclick="demoPrompt()">
+              <button class="btn btn-primary" onclick="demoPrompt()">
                 Run Prompt
               </button>
             </div>
@@ -143,14 +177,29 @@ GariDialog({
 GariDialog({
   title: "Enter Name",
   icon: "fa-solid fa-user",
-  color: "success",
+  color: "info",
   actions: { ok: "Submit" },
+  sound: "info",
   promptInput: [
     { type: "text", label: "Name", name: "name" }
   ]
 }).then(result => console.log(result));
 </code></pre>
               <button class="copy-btn" onclick="copyCode('code-prompt')">
+                Copy
+              </button>
+            </div>
+
+            <div class="example-code mt-2">
+              <pre>
+                <code>
+{
+    "ok": true,
+    "inputs": {
+        "name": "My name"
+    }
+}</code></pre>
+              <button class="copy-btn" onclick="copyCode('code-alert-console')">
                 Copy
               </button>
             </div>
@@ -227,25 +276,53 @@ GariDialog({
                 <td>object</td>
                 <td>{ key: "Button Text" }</td>
               </tr>
-                <tr>
+              <tr>
                 <td>close</td>
                 <td>string | false</td>
-                <td>Label of the cancel button, or <code>false</code> to hide it</td>
-                </tr>
+                <td>
+                  Label of the cancel button, or <code>false</code> to hide it
+                </td>
+              </tr>
               <tr>
                 <td>size</td>
                 <td>“sm”, “md”, “lg”, “fullscreen”</td>
                 <td>Dialog width</td>
               </tr>
-                <tr>
+              <tr>
                 <td>promptInput</td>
                 <td>array</td>
                 <td>
-                  Array of input configs for prompts.<br>
-                  Each config supports: <code>type</code>, <code>label</code>, <code>name</code>, <code>defaultValue</code>, <code>placeholder</code>.<br>
-                  Example: <code>[{ type: "text", label: "Name", name: "name" }]</code>
+                  Array of input configs for prompts.<br />
+                  Each config supports: <code>type</code>, <code>label</code>,
+                  <code>name</code>, <code>defaultValue</code>,
+                  <code>placeholder</code>.<br />
+                  Example:
+                  <code>[{ type: "text", label: "Name", name: "name" }]</code>
                 </td>
-                </tr>
+              </tr>
+              <tr>
+                <td>sound</td>
+                <td>boolean | string</td>
+                <td>
+                  Play a sound notification.<br />
+                  Set to <code>true</code> to use default sound based on color,
+                  or provide a specific sound type (<code>"success"</code>,
+                  <code>"danger"</code>, <code>"warning"</code>,
+                  <code>"info"</code>).
+                </td>
+              </tr>
+              <tr>
+                <td>autoSelect</td>
+                <td>boolean</td>
+                <td>
+                  Automatically focus and select the first input in prompts
+                </td>
+              </tr>
+              <tr>
+                <td>escape</td>
+                <td>boolean</td>
+                <td>Allow closing the dialog with the Escape key</td>
+              </tr>
             </tbody>
           </table>
         </section>
@@ -255,8 +332,9 @@ GariDialog({
         <!-- COLORS -->
         <section id="colors">
           <h2>Available Colors</h2>
-          <p></p>
-            You can use any of these theme names, or provide any valid hex color (e.g. <code>#ff6600</code>).
+          <p>
+            You can use any of these theme names, or provide any valid hex color
+            (e.g. <code>#ff6600</code>).
           </p>
           <div class="color-grid">
             <div class="color-box" style="--c: #027be3">primary</div>
@@ -292,8 +370,8 @@ GariDialog({
         <section id="donate">
           <h2>Support the Project</h2>
           <p class="text-muted">
-            If
-            GariDialog helps you in your work, please consider supporting me. Every donation truly helps.
+            If GariDialog helps you in your work, please consider supporting me.
+            Every donation truly helps.
           </p>
 
           <a
@@ -312,7 +390,9 @@ GariDialog({
 
           <p>
             Check out the project on
-            <a href="https://github.com/Holmberg28/gari-dialog" target="_blank">GitHub</a>.
+            <a href="https://github.com/Holmberg28/gari-dialog" target="_blank"
+              >GitHub</a
+            >.
           </p>
         </section>
       </main>

@@ -1,6 +1,6 @@
 {
   "name": "garidialog",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A lightweight, customizable modal/dialog library for web developers, supporting icons, actions, prompts, and animations.",
   "main": "dist/garidialog.min.js",
   "module": "dist/garidialog.min.js",
@@ -37,7 +37,19 @@
     "component",
     "custom-dialog",
     "dialog-box",
-    "modal-dialog"
+    "modal-dialog",
+    "web-dialog",
+    "dialog-component",
+    "sound",
+    "audio",
+    "audio-alerts",
+    "sound-notifications",
+    "interactive",
+    "feedback",
+    "success-sound",
+    "warning-sound",
+    "error-sound",
+    "info-sound"
   ],
   "author": "Holmberg A. Garcia Rivera",
   "license": "MIT",

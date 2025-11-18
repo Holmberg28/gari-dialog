@@ -15,6 +15,7 @@ function GariDialog({
     escape = true,
     autoSelect = true,
     promptInput = [],
+    sound = false,
 } = {}) {
     return new Promise((resolve) => {
         if (openGariDialogs && currentBackdrop) {
@@ -132,6 +133,28 @@ function GariDialog({
                 document.addEventListener("keydown", escapeHandler);
             }
 
+            if (sound) {
+
+                const soundColor = typeof sound === "string" ? sound : color;
+
+                switch (soundColor) {
+                    case "success":
+                        soundSuccess();
+                        break;
+                    case "danger":
+                        soundError();
+                        break;
+                    case "warning":
+                        soundWarning();
+                        break;
+                    case "info":
+                        soundInfo();
+                        break;
+                    default:
+                        soundDefault();
+                }
+            }
+
             document.body.appendChild(backdropDiv);
         }
     });
@@ -181,4 +204,81 @@ function createPromptInput(type, placeholder = "", defaultValue = "", label = ""
     wrapper.appendChild(inputEl);
 
     return wrapper;
+}
+
+const ctx = new AudioContext()
+
+function soundWarning() {
+    const o = ctx.createOscillator()
+    const g = ctx.createGain()
+    o.frequency.value = 180
+    g.gain.setValueAtTime(0.7, ctx.currentTime)
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08)
+    o.connect(g).connect(ctx.destination)
+    o.start()
+    o.stop(ctx.currentTime + 0.08)
+
+    const o2 = ctx.createOscillator()
+    const g2 = ctx.createGain()
+    o2.frequency.value = 220
+    g2.gain.setValueAtTime(0.7, ctx.currentTime + 0.12)
+    g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.20)
+    o2.connect(g2).connect(ctx.destination)
+    o2.start(ctx.currentTime + 0.12)
+    o2.stop(ctx.currentTime + 0.20)
+}
+
+function soundError() {
+    const o = ctx.createOscillator()
+    const g = ctx.createGain()
+    o.frequency.value = 90
+    g.gain.setValueAtTime(0.8, ctx.currentTime)
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28)
+    o.connect(g).connect(ctx.destination)
+    o.start()
+    o.stop(ctx.currentTime + 0.28)
+}
+
+function soundSuccess() {
+    function note(freq, offset) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + offset);
+
+        gain.gain.setValueAtTime(0.001, ctx.currentTime + offset);
+        gain.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + offset + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + offset + 0.1);
+
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(ctx.currentTime + offset);
+        osc.stop(ctx.currentTime + offset + 0.12);
+    }
+
+    note(1400, 0);
+    note(1700, 0.06);
+}
+
+
+function soundInfo() {
+    const o = ctx.createOscillator()
+    const g = ctx.createGain()
+    o.frequency.value = 260
+    g.gain.setValueAtTime(0.5, ctx.currentTime)
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12)
+    o.connect(g).connect(ctx.destination)
+    o.start()
+    o.stop(ctx.currentTime + 0.12)
+}
+
+function soundDefault() {
+    const o = ctx.createOscillator()
+    const g = ctx.createGain()
+    o.frequency.value = 200
+    g.gain.setValueAtTime(0.5, ctx.currentTime)
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.10)
+    o.connect(g).connect(ctx.destination)
+    o.start()
+    o.stop(ctx.currentTime + 0.10)
 }

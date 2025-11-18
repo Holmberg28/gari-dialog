@@ -59,10 +59,13 @@
 
 .example-code {
   position: relative;
-  background: #f8f9fa;
-  border: 1px solid #ddd;
+  background: #1F2937;
+  border: 1px solid #374151;
   padding: 12px;
   border-radius: 8px;
+  color: #d1d5db;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
 }
 
 .copy-btn {

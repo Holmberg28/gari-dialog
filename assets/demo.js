@@ -2,9 +2,10 @@ function demoAlert() {
     GariDialog({
         title: "Hello!",
         text: "This is a simple alert dialog.",
-        color: "primary",
+        color: "success",
         icon: "fa-solid fa-bell",
-        close: "Got it"
+        close: "Got it",
+        sound: true
     });
 }
 
@@ -15,6 +16,7 @@ function demoConfirm() {
         color: "warning",
         icon: "fa-solid fa-triangle-exclamation",
         close: "Cancel",
+        sound: true,
         actions: {
             confirm: "Yes, continue"
         }
@@ -24,10 +26,11 @@ function demoConfirm() {
 function demoPrompt() {
     GariDialog({
         title: "Enter Your Name",
-        color: "success",
+        color: "primary",
         icon: "fa-solid fa-user",
         actions: { ok: "Submit" },
         close: "Cancel",
+        sound: "info",
         promptInput: [
             {
                 type: "text",

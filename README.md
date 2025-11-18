@@ -10,7 +10,8 @@ Perfect for confirmations, alerts, prompts, or custom interactive dialogs.
 ---
 ## 🚀 Features
 
-- Clean, modern dialog UI  
+- [NEW] Sound Notifications!
+- Clean, modern dialog UI 
 - Supports alerts, confirms, prompts  
 - Add inputs with labels (text, number, email, password, textarea)  
 - Custom icons (FontAwesome, system emoji, or others)  
