@@ -1,0 +1,10 @@
+src/
+assets/
+demo/
+.gitattributes
+.gitignore
+.git/
+node_modules/
+*.log
+index.html
+garidialog-*.tgz
